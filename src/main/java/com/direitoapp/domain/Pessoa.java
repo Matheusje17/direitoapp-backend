@@ -29,9 +29,6 @@ public abstract class Pessoa implements Serializable{
 	protected String nome;
 	
 	@Column(unique = true)
-	protected String email;
-	
-	@Column(unique = true)
 	protected String celular;
 	protected Boolean isAdvogado;
 	protected String senha;
@@ -53,7 +50,6 @@ public abstract class Pessoa implements Serializable{
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.email = email;
 		this.celular = celular;
 		this.isAdvogado = isAdvogado;
 		this.senha = senha;
@@ -75,14 +71,6 @@ public abstract class Pessoa implements Serializable{
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getCelular() {
@@ -135,7 +123,7 @@ public abstract class Pessoa implements Serializable{
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(celular, email, id);
+		return Objects.hash(celular, id);
 	}
 
 	@Override
@@ -147,7 +135,7 @@ public abstract class Pessoa implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Pessoa other = (Pessoa) obj;
-		return Objects.equals(celular, other.celular) && Objects.equals(email, other.email)
+		return Objects.equals(celular, other.celular)
 				&& Objects.equals(id, other.id);
 	}
 	

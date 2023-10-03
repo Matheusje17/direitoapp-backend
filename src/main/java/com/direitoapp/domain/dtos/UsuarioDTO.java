@@ -14,7 +14,6 @@ private static final long serialVersionUID = 1L;
 	
 	protected Integer id;
 	protected String nome;
-	protected String email;
 	protected String celular;
 	
 	protected Boolean isAdvogado;
@@ -30,7 +29,6 @@ private static final long serialVersionUID = 1L;
 		super();
 		this.id = adv.getId();
 		this.nome = adv.getNome();
-		this.email = adv.getEmail();
 		this.celular = adv.getCelular();
 		this.isAdvogado = adv.getIsAdvogado();
 		this.senha = adv.getSenha();
@@ -46,7 +44,6 @@ private static final long serialVersionUID = 1L;
 		super();
 		this.id = cliente.getId();
 		this.nome = cliente.getNome();
-		this.email = cliente.getEmail();
 		this.celular = cliente.getCelular();
 		this.isAdvogado = cliente.getIsAdvogado();
 		this.senha = cliente.getSenha();
@@ -65,10 +62,6 @@ private static final long serialVersionUID = 1L;
 
 	public String getNome() {
 		return nome;
-	}
-
-	public String getEmail() {
-		return email;
 	}
 
 	public String getCelular() {
