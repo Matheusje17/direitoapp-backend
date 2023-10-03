@@ -46,7 +46,6 @@ public class Advogado extends Pessoa{
 		super();
 		this.id = advDTO.getId();
 		this.nome = advDTO.getNome();
-		this.email = advDTO.getEmail();
 		this.celular = advDTO.getCelular();
 		this.isAdvogado = advDTO.getIsAdvogado();
 		this.senha = advDTO.getSenha();

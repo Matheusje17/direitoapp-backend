@@ -17,7 +17,7 @@ public class LoginService {
 	@Autowired private PessoaRepository pessoaRepository;
 	
 	public Pessoa getLogin(CredenciaisDTO credenciaisDTO) {
-		Optional<Pessoa> pessoa = pessoaRepository.findByEmail(credenciaisDTO.getEmail());
+		Optional<Pessoa> pessoa = pessoaRepository.findByCelular(credenciaisDTO.getCelular());
 		
 		String passRequest = credenciaisDTO.getSenha();
 		String userPass = pessoa.get().getSenha();

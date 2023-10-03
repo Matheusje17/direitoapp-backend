@@ -22,7 +22,6 @@ public class ClienteDTO implements Serializable{
 	
 	@NotNull(message = "O campo nome é obrigatório")
 	protected String nome;
-	protected String email;
 	
 	@NotNull(message = "O campo celular é obrigatório")
 	protected String celular;
@@ -49,7 +48,6 @@ public class ClienteDTO implements Serializable{
 		super();
 		this.id = cliente.getId();
 		this.nome = cliente.getNome();
-		this.email = cliente.getEmail();
 		this.celular = cliente.getCelular();
 		this.isAdvogado = cliente.getIsAdvogado();
 		this.senha = cliente.getSenha();
@@ -72,14 +70,6 @@ public class ClienteDTO implements Serializable{
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getCelular() {

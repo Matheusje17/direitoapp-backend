@@ -28,7 +28,6 @@ public class Cliente extends Pessoa {
 		super();
 		this.id = clienteDTO.getId();
 		this.nome = clienteDTO.getNome();
-		this.email = clienteDTO.getEmail();
 		this.celular = clienteDTO.getCelular();
 		this.isAdvogado = clienteDTO.getIsAdvogado();
 		this.senha = clienteDTO.getSenha();

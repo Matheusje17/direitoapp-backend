@@ -2,15 +2,15 @@ package com.direitoapp.domain.dtos;
 
 public class CredenciaisDTO {
 	
-	private String email;
+	private String celular;
 	private String senha;
 	
 	
-	public String getEmail() {
-		return email;
+	public String getCelular() {
+		return celular;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setCelular(String email) {
+		this.celular = email;
 	}
 	public String getSenha() {
 		return senha;

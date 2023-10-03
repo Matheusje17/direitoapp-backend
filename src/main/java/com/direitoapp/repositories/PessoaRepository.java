@@ -9,6 +9,5 @@ import com.direitoapp.domain.Pessoa;
 
 public interface PessoaRepository extends JpaRepository<Pessoa, Integer>{
 	 Optional<Pessoa> findByCelular(String celular);
-	 Optional<Pessoa> findByEmail(String email);
 	 
 }
