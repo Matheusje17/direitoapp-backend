@@ -18,7 +18,10 @@ public class LoginService {
 	
 	public Pessoa getLogin(CredenciaisDTO credenciaisDTO) {
 		Optional<Pessoa> pessoa = pessoaRepository.findByEmail(credenciaisDTO.getEmail());
-		if(pessoa.get().getSenha() != credenciaisDTO.getSenha()) {
+		
+		String passRequest = credenciaisDTO.getSenha();
+		String userPass = pessoa.get().getSenha();
+		if(!passRequest.equals(userPass)) {
 			throw  new DataIntegrityViolationException("Senha invalida!");
 		}
 		
