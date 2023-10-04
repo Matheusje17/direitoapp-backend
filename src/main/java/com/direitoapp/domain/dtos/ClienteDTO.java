@@ -32,6 +32,8 @@ public class ClienteDTO implements Serializable{
 	protected String senha;
 	
 	protected String cep;
+	protected String estado;
+	protected String cidade;
 	
 	protected Set<Integer> perfis = new HashSet<>();
 	
@@ -52,6 +54,8 @@ public class ClienteDTO implements Serializable{
 		this.isAdvogado = cliente.getIsAdvogado();
 		this.senha = cliente.getSenha();
 		this.cep = cliente.getCep();
+		this.estado = cliente.getEstado();
+		this.cidade = cliente.getCidade();
 		this.perfis = cliente.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
 		this.dataCriacao = cliente.getDataCriacao();
 	}
@@ -102,6 +106,22 @@ public class ClienteDTO implements Serializable{
 
 	public void setCep(String cep) {
 		this.cep = cep;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
 	}
 
 	public Set<Perfil> getPerfis() {

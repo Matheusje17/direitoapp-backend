@@ -36,8 +36,8 @@ public class Cliente extends Pessoa {
 		this.dataCriacao = clienteDTO.getDataCriacao();
 	}
 	
-	public Cliente(Integer id, String nome, String email, String celular, Boolean isAdvogado, String senha,String cep) {
-		super(id, nome, email, celular, isAdvogado, senha, cep);
+	public Cliente(Integer id, String nome, String email, String celular, Boolean isAdvogado, String senha,String cep, String estado, String cidade) {
+		super(id, nome, email, celular, isAdvogado, senha, cep, estado, cidade);
 		addPerfil(Perfil.CLIENTE);
 	}
 
