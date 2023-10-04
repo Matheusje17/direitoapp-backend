@@ -35,19 +35,19 @@ public class DBService {
 	
 	public void instanciaDB() {
 		
-		Advogado adv1 = new Advogado(null, "Valéria", "valeria@mail.com", "13988458710", true,"12345", "11442331", "123-789");
+		Advogado adv1 = new Advogado(null, "Valéria", "valeria@mail.com", "13988458710", true,"12345", "11442331", "123-789", "Sao Paulo", "Guaruja");
 		adv1.addPerfil(Perfil.ADVOGADO);
 		
-		Cliente cli1 = new Cliente(null, "Matheus", "teste@mail.com", "13988452210", false, "54321", "11442331");
+		Cliente cli1 = new Cliente(null, "Matheus", "teste@mail.com", "13988452210", false, "54321", "11442331", "Sao Paulo", "Guaruja");
 		cli1.addPerfil(Perfil.CLIENTE);
 		
 		Caso caso1 = new Caso(null, "Titulo", false, "Desqcrição aqui", Status.AGUARDANDO, TipoCaso.TRABALHISTA, cli1, adv1, "sp", "gja");
 		AdvogadoCaso advCaso1 = new AdvogadoCaso(caso1, adv1, cli1);
 		
-		Advogado adv2 = new Advogado(null, "Geleia", "geleia@mail.com", "13988451110", true,"123245", "11442331", "123-119");
+		Advogado adv2 = new Advogado(null, "Geleia", "geleia@mail.com", "13988451110", true,"123245", "11442331", "123-119", "Sao Paulo", "Guaruja");
 		adv1.addPerfil(Perfil.ADVOGADO);
 		
-		Cliente cli2 = new Cliente(null, "Jao", "jao@mail.com", "13933452210", false, "1244345", "11442331");
+		Cliente cli2 = new Cliente(null, "Jao", "jao@mail.com", "13933452210", false, "1244345", "11442331", "Sao Paulo", "Guaruja");
 		cli1.addPerfil(Perfil.CLIENTE);
 		
 		Caso caso2 = new Caso(null, "Titulo2", false, "Desqcrição aqui2", Status.AGUARDANDO, TipoCaso.CRIMINAL, cli2, adv2, "São Paulo", "Guarujá");
