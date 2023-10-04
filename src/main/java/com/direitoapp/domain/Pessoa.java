@@ -33,8 +33,6 @@ public abstract class Pessoa implements Serializable{
 	protected Boolean isAdvogado;
 	protected String senha;
 	protected String cep;
-	protected String estado;
-	protected String cidade;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "PERFIS")
@@ -48,7 +46,7 @@ public abstract class Pessoa implements Serializable{
 		addPerfil(Perfil.CLIENTE);
 	}
 
-	public Pessoa(Integer id, String nome, String email, String celular, Boolean isAdvogado, String senha, String cep, String estado, String cidade) {
+	public Pessoa(Integer id, String nome, String email, String celular, Boolean isAdvogado, String senha, String cep) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -56,8 +54,6 @@ public abstract class Pessoa implements Serializable{
 		this.isAdvogado = isAdvogado;
 		this.senha = senha;
 		this.cep = cep;
-		this.estado = estado;
-		this.cidade = cidade;
 		addPerfil(Perfil.CLIENTE);
 	}
 
@@ -123,22 +119,6 @@ public abstract class Pessoa implements Serializable{
 
 	public void setDataCriacao(LocalDate dataCriacao) {
 		this.dataCriacao = dataCriacao;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
 	}
 
 	@Override

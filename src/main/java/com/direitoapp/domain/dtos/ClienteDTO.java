@@ -33,9 +33,6 @@ public class ClienteDTO implements Serializable{
 	
 	protected String cep;
 	
-	protected String estado;
-	protected String cidade;
-	
 	protected Set<Integer> perfis = new HashSet<>();
 	
 	@JsonFormat(pattern = "dd/MM/YYYY")
@@ -105,22 +102,6 @@ public class ClienteDTO implements Serializable{
 
 	public void setCep(String cep) {
 		this.cep = cep;
-	}	
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
 	}
 
 	public Set<Perfil> getPerfis() {
