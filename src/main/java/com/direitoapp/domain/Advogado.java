@@ -35,8 +35,8 @@ public class Advogado extends Pessoa{
 	}
 	
 	public Advogado(Integer id, String nome, String email, String celular, Boolean isAdvogado, String senha,
-			String cep, String oab) {
-		super(id, nome, email, celular, isAdvogado, senha, cep);
+			String cep, String oab, String estado, String cidade) {
+		super(id, nome, email, celular, isAdvogado, senha, cep, estado, cidade);
 		this.oab = oab;
 		addPerfil(Perfil.ADVOGADO);
 		setQuantidadeCasosAtendidos(0);

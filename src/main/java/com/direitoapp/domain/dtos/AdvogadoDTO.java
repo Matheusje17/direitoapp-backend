@@ -31,6 +31,9 @@ public class AdvogadoDTO implements Serializable{
 	@NotNull(message = "O campo senha é obrigatório")
 	protected String senha;
 	protected String cep;
+	protected String estado;
+	protected String cidade;
+	
 	
 	@NotNull(message = "O campo oab é obrigatório")
 	private String oab;
@@ -59,6 +62,8 @@ public class AdvogadoDTO implements Serializable{
 		this.perfis = adv.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
 		this.dataCriacao = adv.getDataCriacao();
 		this.oab = adv.getOab();
+		this.estado = adv.getEstado();
+		this.cidade = adv.getCidade();
 		this.quantidadeCasosAtendidos = adv.getQuantidadeCasosAtendidos();
 		this.advogadoCasoDTO = adv.getAdvogadoCaso().stream().map(ac -> new AdvogadoCasoDTO(ac)).collect(Collectors.toList());
 		
@@ -118,6 +123,22 @@ public class AdvogadoDTO implements Serializable{
 
 	public void setOab(String oab) {
 		this.oab = oab;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
 	}
 
 	public Integer getQuantidadeCasosAtendidos() {
