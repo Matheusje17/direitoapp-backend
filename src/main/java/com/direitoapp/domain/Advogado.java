@@ -53,6 +53,9 @@ public class Advogado extends Pessoa{
 		this.perfis = advDTO.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
 		this.dataCriacao = advDTO.getDataCriacao();
 		this.oab = advDTO.getOab();
+		this.estado = advDTO.getEstado();
+		this.cidade = advDTO.getCidade();
+		
 		this.quantidadeCasosAtendidos = advDTO.getQuantidadeCasosAtendidos();
 	}
 	
