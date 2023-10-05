@@ -34,6 +34,8 @@ public class Cliente extends Pessoa {
 		this.cep = clienteDTO.getCep();
 		this.perfis = clienteDTO.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
 		this.dataCriacao = clienteDTO.getDataCriacao();
+		this.estado = clienteDTO.getEstado();
+		this.cidade= clienteDTO.getCidade();
 	}
 	
 	public Cliente(Integer id, String nome, String email, String celular, Boolean isAdvogado, String senha,String cep, String estado, String cidade) {
