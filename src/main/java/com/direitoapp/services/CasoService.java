@@ -37,6 +37,9 @@ public class CasoService {
 	}
 
 	public Caso create(@Valid CasoDTO casoDTO) {
+		Cliente cli = clienteService.findById(casoDTO.getClienteId());
+		casoDTO.setEstado(cli.getEstado());
+		casoDTO.setCidade(cli.getCidade());
 		return casoRepository.save(newCaso(casoDTO));
 	}
 	
