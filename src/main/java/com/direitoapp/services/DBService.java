@@ -41,7 +41,7 @@ public class DBService {
 		Cliente cli1 = new Cliente(null, "Matheus", "teste@mail.com", "13988452210", false, "54321", "11442331", "São Paulo", "Guaruja");
 		cli1.addPerfil(Perfil.CLIENTE);
 		
-		Caso caso1 = new Caso(null, "Titulo", false, "Desqcrição aqui", Status.AGUARDANDO, TipoCaso.TRABALHISTA, cli1, adv1, "sp", "gja");
+		Caso caso1 = new Caso(null, "Titulo", false, "Desqcrição aqui", Status.AGUARDANDO_ADVOGADOS, TipoCaso.TRABALHISTA, cli1, adv1, "sp", "gja");
 		AdvogadoCaso advCaso1 = new AdvogadoCaso(caso1, adv1, cli1);
 		
 		Advogado adv2 = new Advogado(null, "Geleia", "geleia@mail.com", "13988451110", true,"123245", "11442331", "123-119", "São Paulo", "Guaruja");
@@ -50,7 +50,7 @@ public class DBService {
 		Cliente cli2 = new Cliente(null, "Jao", "jao@mail.com", "13933452210", false, "1244345", "11442331", "São Paulo", "Guaruja");
 		cli1.addPerfil(Perfil.CLIENTE);
 		
-		Caso caso2 = new Caso(null, "Titulo2", false, "Desqcrição aqui2", Status.AGUARDANDO, TipoCaso.CRIMINAL, cli2, adv2, "São Paulo", "Guarujá");
+		Caso caso2 = new Caso(null, "Titulo2", false, "Desqcrição aqui2", Status.AGUARDANDO_ADVOGADOS, TipoCaso.CRIMINAL, cli2, adv2, "São Paulo", "Guarujá");
 		AdvogadoCaso advCaso2 = new AdvogadoCaso(caso2, adv2, cli2);
 		
 		

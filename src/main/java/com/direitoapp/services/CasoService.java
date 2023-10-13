@@ -40,7 +40,7 @@ public class CasoService {
 		Cliente cli = clienteService.findById(casoDTO.getClienteId());
 		casoDTO.setEstado(cli.getEstado());
 		casoDTO.setCidade(cli.getCidade());
-		casoDTO.setStatus(Status.AGUARDANDO.name());
+		casoDTO.setStatus(Status.AGUARDANDO_ADVOGADOS.getDescricao());
 		return casoRepository.save(newCaso(casoDTO));
 	}
 	
@@ -82,7 +82,7 @@ public class CasoService {
 		caso.setTitulo(casoDTO.getTitulo());
 		caso.setDescricao(casoDTO.getDescricao());
 		caso.setIsUrgente(casoDTO.getIsUrgente());
-		caso.setStatus(Status.AGUARDANDO);
+		caso.setStatus(Status.toEnum(casoDTO.getStatus()));
 		caso.setTipoCaso(TipoCaso.toEnum(casoDTO.getTipoCaso()));
 		caso.setCidade(casoDTO.getCidade());
 		caso.setEstado(casoDTO.getEstado());

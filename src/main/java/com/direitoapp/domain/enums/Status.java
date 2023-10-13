@@ -1,7 +1,7 @@
 package com.direitoapp.domain.enums;
 
 public enum Status {
-	RECUSADO(0,"Recusado"), ACEITO(1,"Aceito"), AGUARDANDO(2,"Aguardando Advogados"), AGUARDANDO_CLIENTE(1,"Aguardando Cliente");
+	RECUSADO(0,"Recusado"), ACEITO(1,"Aceito"), AGUARDANDO_ADVOGADOS(2,"Aguardando Advogados"), AGUARDANDO_CLIENTE(1,"Aguardando Cliente"), COM_ACEITES(1,"Ccom Aceites");
 	
 	private Integer codigo;
 	private String descricao;
@@ -34,13 +34,13 @@ public enum Status {
 		
 	}
 	
-	public static Status toEnum(String name) {
-		if (name == null) {
+	public static Status toEnum(String descricao) {
+		if (descricao == null) {
 			return null;
 		}
 		
 		for (Status p : Status.values()) {
-			if (name.equals(p.name())) {
+			if (descricao.equals(p.getDescricao())) {
 				return p;
 			}
 		}
