@@ -46,7 +46,7 @@ public class AdvogadoCaso implements Serializable{
 		this.caso = caso;
 		this.cliente = cliente;
 		this.advogadoAtendimento = advogadoAtendimento;
-		this.status = Status.AGUARDANDO.getCodigo();
+		this.status = Status.AGUARDANDO_CLIENTE.getCodigo();
 	}
 	
 	public Integer getId() {
