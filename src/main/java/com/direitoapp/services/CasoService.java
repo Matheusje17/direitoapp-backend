@@ -63,7 +63,7 @@ public class CasoService {
 		return casosList;
 	}
 	
-	public List<Caso> findByTipoERegiao(Integer tipoCaso, String estado, String cidade) {
+	public List<Caso> findByTipoERegiao(String tipoCaso, String estado, String cidade) {
 		Optional<List<Caso>> casos = casoRepository.findByTipoERegiao(TipoCaso.toEnum(tipoCaso), estado, cidade);
 		return casos.get();
 	}

@@ -57,7 +57,7 @@ public class CasoResource {
 	}
 	
 	@GetMapping(value = "/{tipoCaso}/{estado}/{cidade}")
-	public ResponseEntity<List<CasoDTO>> findByTipoERegiao(@PathVariable Integer tipoCaso, @PathVariable String estado, @PathVariable String cidade) {
+	public ResponseEntity<List<CasoDTO>> findByTipoERegiao(@PathVariable String tipoCaso, @PathVariable String estado, @PathVariable String cidade) {
 		List<Caso> casos = casoService.findByTipoERegiao(tipoCaso, estado, cidade);
 		List<CasoDTO> casosDTO =  casos.stream().map(caso -> new CasoDTO(caso)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(casosDTO);
