@@ -6,6 +6,7 @@ import com.direitoapp.domain.Advogado;
 import com.direitoapp.domain.AdvogadoCaso;
 import com.direitoapp.domain.Caso;
 import com.direitoapp.domain.Cliente;
+import com.direitoapp.domain.enums.Status;
 
 public class AdvogadoCasoDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -69,8 +70,7 @@ public class AdvogadoCasoDTO implements Serializable{
 		this.titulo = caso.getTitulo();
 		this.isUrgente = caso.getIsUrgente();
 		this.descricao = caso.getDescricao();
-		this.status = caso.getStatus().name();
-		this.tipoCaso = caso.getTipoCaso().name();
+		this.tipoCaso = caso.getTipoCaso().getDescricao();
 		this.idAdvogadoAtendimento = advogado.getId();
 		this.oab = advogado.getOab();
 		this.quantidadeCasosAtendidos = advogado.getQuantidadeCasosAtendidos();
@@ -85,8 +85,8 @@ public class AdvogadoCasoDTO implements Serializable{
 		this.titulo = advogadoCaso.getCaso().getTitulo();
 		this.isUrgente = advogadoCaso.getCaso().getIsUrgente();
 		this.descricao = advogadoCaso.getCaso().getDescricao();
-		this.status = advogadoCaso.getCaso().getStatus().name();
-		this.tipoCaso = advogadoCaso.getCaso().getTipoCaso().name();
+		this.status = Status.toEnum(advogadoCaso.getStatus()).getDescricao();
+		this.tipoCaso = advogadoCaso.getCaso().getTipoCaso().getDescricao();
 		this.idAdvogadoAtendimento = advogadoCaso.getAdvogadoAtendimento().getId();
 		this.oab = advogadoCaso.getAdvogadoAtendimento().getOab();
 		this.quantidadeCasosAtendidos = advogadoCaso.getAdvogadoAtendimento().getQuantidadeCasosAtendidos();

@@ -1,7 +1,7 @@
 package com.direitoapp.domain.enums;
 
 public enum TipoCaso {
-	CIVIL(0,"CAUSA_CIVIL"), CRIMINAL(1,"CAUSA_CRIMINAL"), TRABALHISTA(2,"CAUSA_TRABALHISTA"), CONSUMIDOR(3,"CAUSA_CONSUMIDOR");
+	CIVIL(0,"Civil"), CRIMINAL(1,"Criminal"), TRABALHISTA(2,"Trabalhista"), CONSUMIDOR(3,"Consumidor");
 	
 	private Integer codigo;
 	private String descricao;
@@ -34,13 +34,13 @@ public enum TipoCaso {
 		
 	}
 	
-	public static TipoCaso toEnum(String name) {
-		if (name == null) {
+	public static TipoCaso toEnum(String descricao) {
+		if (descricao == null) {
 			return null;
 		}
 		
 		for (TipoCaso p : TipoCaso.values()) {
-			if (name.equals(p.name())) {
+			if (descricao.equals(p.getDescricao())) {
 				return p;
 			}
 		}
