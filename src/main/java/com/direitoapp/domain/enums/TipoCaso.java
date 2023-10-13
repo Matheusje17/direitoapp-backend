@@ -34,5 +34,20 @@ public enum TipoCaso {
 		
 	}
 	
+	public static TipoCaso toEnum(String name) {
+		if (name == null) {
+			return null;
+		}
+		
+		for (TipoCaso p : TipoCaso.values()) {
+			if (name.equals(p.name())) {
+				return p;
+			}
+		}
+		
+		throw new IllegalArgumentException("Perfil inválido");
+		
+	}
+	
 	
 }

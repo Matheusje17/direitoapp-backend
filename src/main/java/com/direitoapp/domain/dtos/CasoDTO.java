@@ -26,10 +26,10 @@ public class CasoDTO implements Serializable{
 	
 	@NotNull(message = "A descrição deve ser informado!")
 	private String descricao;
-	private Integer status;
+	private String status;
 	
 	@NotNull(message = "O tipo de causa deve ser informado!")
-	private Integer tipoCaso;
+	private String tipoCaso;
 	private String nomeAdvogado;
 	private String nomeCliente;
 	private Integer advogadoId;
@@ -54,8 +54,8 @@ public class CasoDTO implements Serializable{
 		this.titulo = caso.getTitulo();
 		this.isUrgente = caso.getIsUrgente();
 		this.descricao = caso.getDescricao();
-		this.status = caso.getStatus().getCodigo();
-		this.tipoCaso = caso.getTipoCaso().getCodigo();
+		this.status = caso.getStatus().name();
+		this.tipoCaso = caso.getTipoCaso().name();
 		this.nomeCliente = caso.getCliente().getNome();
 		this.clienteId = caso.getCliente().getId();
 		this.dataCriacao = caso.getDataCriacao();
@@ -96,19 +96,19 @@ public class CasoDTO implements Serializable{
 		this.descricao = descricao;
 	}
 
-	public Integer getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Integer status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	public Integer getTipoCaso() {
+	public String getTipoCaso() {
 		return tipoCaso;
 	}
 
-	public void setTipoCaso(Integer tipoCaso) {
+	public void setTipoCaso(String tipoCaso) {
 		this.tipoCaso = tipoCaso;
 	}
 

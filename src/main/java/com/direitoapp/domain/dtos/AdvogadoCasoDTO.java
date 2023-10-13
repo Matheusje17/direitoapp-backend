@@ -15,8 +15,8 @@ public class AdvogadoCasoDTO implements Serializable{
 	private String titulo;
 	private Boolean isUrgente;
 	private String descricao;
-	private Integer status;
-	private Integer tipoCaso;
+	private String status;
+	private String tipoCaso;
 	
 	//ADVOGADO
 	private Integer idAdvogadoAtendimento;
@@ -37,8 +37,8 @@ public class AdvogadoCasoDTO implements Serializable{
 		, String titulo
 		, Boolean isUrgente
 		, String descricao
-		, Integer status
-		, Integer tipoCaso
+		, String status
+		, String tipoCaso
 		, Integer idAdvogadoAtendimento
 		, String oab
 		,Integer quantidadeCasosAtendidos
@@ -69,8 +69,8 @@ public class AdvogadoCasoDTO implements Serializable{
 		this.titulo = caso.getTitulo();
 		this.isUrgente = caso.getIsUrgente();
 		this.descricao = caso.getDescricao();
-		this.status = caso.getStatus().getCodigo();
-		this.tipoCaso = caso.getTipoCaso().getCodigo();
+		this.status = caso.getStatus().name();
+		this.tipoCaso = caso.getTipoCaso().name();
 		this.idAdvogadoAtendimento = advogado.getId();
 		this.oab = advogado.getOab();
 		this.quantidadeCasosAtendidos = advogado.getQuantidadeCasosAtendidos();
@@ -85,8 +85,8 @@ public class AdvogadoCasoDTO implements Serializable{
 		this.titulo = advogadoCaso.getCaso().getTitulo();
 		this.isUrgente = advogadoCaso.getCaso().getIsUrgente();
 		this.descricao = advogadoCaso.getCaso().getDescricao();
-		this.status = advogadoCaso.getStatus();
-		this.tipoCaso = advogadoCaso.getCaso().getTipoCaso().getCodigo();
+		this.status = advogadoCaso.getCaso().getStatus().name();
+		this.tipoCaso = advogadoCaso.getCaso().getTipoCaso().name();
 		this.idAdvogadoAtendimento = advogadoCaso.getAdvogadoAtendimento().getId();
 		this.oab = advogadoCaso.getAdvogadoAtendimento().getOab();
 		this.quantidadeCasosAtendidos = advogadoCaso.getAdvogadoAtendimento().getQuantidadeCasosAtendidos();
@@ -135,19 +135,19 @@ public class AdvogadoCasoDTO implements Serializable{
 		this.descricao = descricao;
 	}
 
-	public Integer getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Integer status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	public Integer getTipoCaso() {
+	public String getTipoCaso() {
 		return tipoCaso;
 	}
 
-	public void setTipoCaso(Integer tipoCaso) {
+	public void setTipoCaso(String tipoCaso) {
 		this.tipoCaso = tipoCaso;
 	}
 
