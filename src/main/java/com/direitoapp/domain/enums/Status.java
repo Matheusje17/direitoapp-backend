@@ -34,5 +34,20 @@ public enum Status {
 		
 	}
 	
+	public static Status toEnum(String name) {
+		if (name == null) {
+			return null;
+		}
+		
+		for (Status p : Status.values()) {
+			if (name.equals(p.name())) {
+				return p;
+			}
+		}
+		
+		throw new IllegalArgumentException("Perfil inválido");
+		
+	}
+	
 	
 }

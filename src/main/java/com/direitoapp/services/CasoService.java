@@ -40,6 +40,7 @@ public class CasoService {
 		Cliente cli = clienteService.findById(casoDTO.getClienteId());
 		casoDTO.setEstado(cli.getEstado());
 		casoDTO.setCidade(cli.getCidade());
+		casoDTO.setStatus(Status.AGUARDANDO.name());
 		return casoRepository.save(newCaso(casoDTO));
 	}
 	

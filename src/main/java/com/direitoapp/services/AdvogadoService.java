@@ -33,6 +33,8 @@ public class AdvogadoService {
 		advogadoDTO.setId(null);
 		advogadoDTO.setSenha(advogadoDTO.getSenha());
 		validaAdvogadoExistente(advogadoDTO);
+		advogadoDTO.setQuantidadeCasosAtendidos(0);
+		
 		Advogado newAdv = new Advogado(advogadoDTO);
 		return advogadoRepository.save(newAdv );
 	}
