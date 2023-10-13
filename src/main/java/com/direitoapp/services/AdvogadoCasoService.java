@@ -77,6 +77,9 @@ public class AdvogadoCasoService {
 		Advogado adv = advCaso.getAdvogado();
 		adv.setQuantidadeCasosAtendidos(adv.getQuantidadeCasosAtendidos() + 1);
 		
+		Caso caso = advCaso.getCaso();
+		caso.setStatus(Status.COM_ACEITES);
+		
 		advogadoCasoRepository.save(advCaso);
 		AdvogadoCasoDTO advCasoDTO = new AdvogadoCasoDTO(advCaso);
 		advogadoService.update(adv.getId(), new AdvogadoDTO(adv));
