@@ -54,8 +54,8 @@ public class CasoDTO implements Serializable{
 		this.titulo = caso.getTitulo();
 		this.isUrgente = caso.getIsUrgente();
 		this.descricao = caso.getDescricao();
-		this.status = caso.getStatus().name();
-		this.tipoCaso = caso.getTipoCaso().name();
+		this.status = caso.getStatus().getDescricao();
+		this.tipoCaso = caso.getTipoCaso().getDescricao();
 		this.nomeCliente = caso.getCliente().getNome();
 		this.clienteId = caso.getCliente().getId();
 		this.dataCriacao = caso.getDataCriacao();
