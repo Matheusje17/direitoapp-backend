@@ -1,7 +1,7 @@
 package com.direitoapp.domain.enums;
 
 public enum Status {
-	RECUSADO(0,"Recusado"), ACEITO(1,"Aceito"), AGUARDANDO_ADVOGADOS(2,"Aguardando Advogados"), AGUARDANDO_CLIENTE(1,"Aguardando Cliente"), COM_ACEITES(1,"Ccom Aceites");
+	RECUSADO(0,"Recusado"), ACEITO(1,"Aceito"), AGUARDANDO_ADVOGADOS(2,"Aguardando Advogados"), AGUARDANDO_CLIENTE(3,"Aguardando Cliente"), COM_ACEITES(4,"Ccom Aceites");
 	
 	private Integer codigo;
 	private String descricao;
