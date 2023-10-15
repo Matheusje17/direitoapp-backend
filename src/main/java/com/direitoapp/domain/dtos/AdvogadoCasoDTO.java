@@ -10,7 +10,7 @@ import com.direitoapp.domain.enums.Status;
 
 public class AdvogadoCasoDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
-	private final String link = "https://wa.me/5513988888888?text=Ol%C3%A1+entro+em+contato+atrav%C3%A9s+do+app+Direito+a+um+clique%21";
+	//private final String link = "https://wa.me/5513988888888?text=Ol%C3%A1+entro+em+contato+atrav%C3%A9s+do+app+Direito+a+um+clique%21";
 	//CASO
 	private Integer id;
 	private Integer idCaso;
@@ -64,7 +64,7 @@ public class AdvogadoCasoDTO implements Serializable{
 		this.nomeAdvogado = nomeAdvogado;
 		this.idCliente = idCliente;
 		this.nomeCliente = nomeCliente;
-		this.linkWhatsapp = link;
+		//this.linkWhatsapp = this.linkWhatsapp = "https://wa.me/"+cliente.getCelular()+"?text=Ol%C3%A1+entro+em+contato+atrav%C3%A9s+do+app+Direito+a+um+clique%21";
 	}
 	
 	
@@ -80,7 +80,7 @@ public class AdvogadoCasoDTO implements Serializable{
 		this.nomeAdvogado = advogado.getNome();
 		this.idCliente = cliente.getId();
 		this.nomeCliente = cliente.getNome();
-		this.linkWhatsapp = link;
+		this.linkWhatsapp = "https://wa.me/"+cliente.getCelular()+"?text=Ol%C3%A1+entro+em+contato+atrav%C3%A9s+do+app+Direito+a+um+clique%21";
 	}
 	
 	public AdvogadoCasoDTO(AdvogadoCaso advogadoCaso) {
@@ -97,7 +97,7 @@ public class AdvogadoCasoDTO implements Serializable{
 		this.nomeAdvogado = advogadoCaso.getAdvogadoAtendimento().getNome();
 		this.idCliente = advogadoCaso.getCliente().getId();
 		this.nomeCliente = advogadoCaso.getCliente().getNome();
-		this.linkWhatsapp = advogadoCaso.getLinkWhatsapp();
+		this.linkWhatsapp = "https://wa.me/"+advogadoCaso.getCliente().getCelular()+"?text=Ol%C3%A1+entro+em+contato+atrav%C3%A9s+do+app+Direito+a+um+clique%21";
 	}
 
 	public Integer getId() {

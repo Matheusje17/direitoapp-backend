@@ -16,7 +16,7 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class AdvogadoCaso implements Serializable{
-	private final String link = "https://wa.me/5513988888888?text=Ol%C3%A1+entro+em+contato+atrav%C3%A9s+do+app+Direito+a+um+clique%21";
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -49,7 +49,7 @@ public class AdvogadoCaso implements Serializable{
 		this.cliente = cliente;
 		this.advogadoAtendimento = advogadoAtendimento;
 		this.status = Status.AGUARDANDO_CLIENTE.getCodigo();
-		this.linkWhatsapp = link;
+		this.linkWhatsapp = "https://wa.me/"+cliente.getCelular()+"?text=Ol%C3%A1+entro+em+contato+atrav%C3%A9s+do+app+Direito+a+um+clique%21";
 	}
 	
 	public Integer getId() {
