@@ -28,5 +28,10 @@ public class LoginService {
 		return pessoa.orElseThrow(() -> new ObjectNotFoundException("Usuario não encontrado "));
 	}
 	
+	public Pessoa getUserByCelular(String celular) {
+		Optional<Pessoa> pessoa = pessoaRepository.findByCelular(celular);
+		return pessoa.orElseThrow(() -> new ObjectNotFoundException("Usuario não encontrado "));
+	}
+	
 
 }
