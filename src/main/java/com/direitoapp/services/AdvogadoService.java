@@ -62,14 +62,9 @@ public class AdvogadoService {
 	
 	private void validaAdvogadoExistente(AdvogadoDTO advogadoDTO) {
 		Optional<Pessoa> pessoa = pessoaRepository.findByCelular(advogadoDTO.getCelular());
-		Optional<Advogado> advogado = advogadoRepository.findByOab(advogadoDTO.getOab());
 		
-		if (pessoa.isPresent() && pessoa.get().getCelular() != advogadoDTO.getCelular()) {
+		if (pessoa.isPresent() && !(pessoa.get().getCelular().equals(advogadoDTO.getCelular()))) {
 			throw new DataIntegrityViolationException("Celular já cadastrado");
-		}
-		
-		if (advogado.isPresent()&& pessoa.get().getCelular() != advogadoDTO.getCelular()) {
-			throw new DataIntegrityViolationException("OAB já cadastrada");
 		}
 		
 	}

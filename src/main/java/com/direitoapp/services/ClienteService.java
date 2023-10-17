@@ -61,7 +61,7 @@ public class ClienteService {
 	private void validaClienteExistente(ClienteDTO ClienteDTO) {
 		Optional<Pessoa> pessoa = pessoaRepository.findByCelular(ClienteDTO.getCelular());
 		
-		if (pessoa.isPresent() && pessoa.get().getCelular() != ClienteDTO.getCelular()) {
+		if (pessoa.isPresent() && !(pessoa.get().getCelular().equals(ClienteDTO.getCelular())) ) {
 			throw new DataIntegrityViolationException("Celular já cadastrado");
 		}
 	}
