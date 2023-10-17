@@ -23,6 +23,8 @@ private static final long serialVersionUID = 1L;
 	private Integer quantidadeCasosAtendidos;
 	protected Set<Integer> perfis = new HashSet<>();
 	protected LocalDate dataCriacao = LocalDate.now();
+	protected String estado;
+	protected String cidade;
 	
 	
 	public UsuarioDTO(Advogado adv) {	
@@ -37,6 +39,9 @@ private static final long serialVersionUID = 1L;
 		this.dataCriacao = adv.getDataCriacao();
 		this.oab = adv.getOab();
 		this.quantidadeCasosAtendidos = adv.getQuantidadeCasosAtendidos();
+		this.estado = adv.getEstado();
+		this.cidade = adv.getCidade();
+		
 		//this.advogadoCasoDTO = adv.getAdvogadoCaso().stream().map(ac -> new AdvogadoCasoDTO(ac)).collect(Collectors.toList());	
 	}
 	
@@ -49,7 +54,9 @@ private static final long serialVersionUID = 1L;
 		this.senha = cliente.getSenha();
 		this.cep = cliente.getCep();
 		this.perfis = cliente.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
-		this.dataCriacao = cliente.getDataCriacao();	
+		this.dataCriacao = cliente.getDataCriacao();
+		this.estado = cliente.getEstado();
+		this.cidade = cliente.getCidade();
 	}
 
 	public static long getSerialversionuid() {
@@ -95,6 +102,23 @@ private static final long serialVersionUID = 1L;
 	public LocalDate getDataCriacao() {
 		return dataCriacao;
 	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+	
 	
 	
 	
