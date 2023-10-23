@@ -24,7 +24,7 @@ import jakarta.validation.Valid;
 
 
 @RestController
-@RequestMapping(value = "/casos")
+@RequestMapping(value = "/casos", produces = "application/json;charset=UTF-8")
 public class CasoResource {
 	
 	@Autowired
