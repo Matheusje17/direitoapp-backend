@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,6 +69,12 @@ public class CasoResource {
 		List<Caso> casos = casoService.findByCliente(idCliente);
 		List<CasoDTO> casosDTO =  casos.stream().map(caso -> new CasoDTO(caso)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(casosDTO);
+	}
+	
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<CasoDTO> delete(@PathVariable Integer id) {
+		casoService.delete(id);
+		return ResponseEntity.noContent().build();
 	}
 	
 	
