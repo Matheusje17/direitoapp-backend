@@ -25,7 +25,8 @@ import jakarta.validation.Valid;
 
 
 @RestController
-@RequestMapping(value = "/advogados" ,produces = "application/json;charset=UTF-8")
+@RequestMapping(value = "/advogados")
+
 public class AdvogadoResource {
 	@Autowired
 	private AdvogadoService advogadoService;
