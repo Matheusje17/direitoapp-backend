@@ -1,16 +1,19 @@
 package com.direitoapp.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.direitoapp.domain.AdvogadoCaso;
 import com.direitoapp.domain.Caso;
 import com.direitoapp.domain.Cliente;
 import com.direitoapp.domain.dtos.CasoDTO;
 import com.direitoapp.domain.enums.Status;
 import com.direitoapp.domain.enums.TipoCaso;
+import com.direitoapp.repositories.AdvogadoCasoRepository;
 import com.direitoapp.repositories.CasoRepository;
 import com.direitoapp.services.exceptions.ObjectNotFoundException;
 
@@ -26,6 +29,9 @@ public class CasoService {
 		
 	@Autowired
 	private ClienteService clienteService;
+	
+	@Autowired
+	private AdvogadoCasoRepository advogadoCasoRepository;
 	
 	public Caso findById(Integer id) {
 		Optional<Caso> caso = casoRepository.findById(id);
@@ -88,6 +94,23 @@ public class CasoService {
 		caso.setEstado(casoDTO.getEstado());
 		
 		return caso;
+	}
+
+	public void delete(Integer id) {
+		Caso caso = findById(id);
+		List<AdvogadoCaso> advCasoList = new ArrayList<>();
+		if(caso.getAdvogadoCaso().size() > 0) {
+			for (AdvogadoCaso advCaso : caso.getAdvogadoCaso()) {
+				advCaso.setStatus(Status.REMOVIDO.getCodigo());
+				advCaso.setCaso(null);
+				advCaso.setCliente(null);
+				advCasoList.add(advCaso);
+			}
+			advogadoCasoRepository.saveAll(advCasoList);
+		}
+
+		casoRepository.deleteById(id);
+		
 	}
 
 
