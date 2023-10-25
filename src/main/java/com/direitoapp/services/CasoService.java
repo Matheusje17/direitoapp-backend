@@ -102,8 +102,6 @@ public class CasoService {
 		if(caso.getAdvogadoCaso().size() > 0) {
 			for (AdvogadoCaso advCaso : caso.getAdvogadoCaso()) {
 				advCaso.setStatus(Status.REMOVIDO.getCodigo());
-				advCaso.setCaso(null);
-				advCaso.setCliente(null);
 				advCasoList.add(advCaso);
 			}
 			advogadoCasoRepository.saveAll(advCasoList);
