@@ -68,7 +68,9 @@ public class AdvogadoCasoService {
 		if (advCaso.isPresent()) {
 			throw new DataIntegrityViolationException("Caso já aceito");
 		}
-		
+		if (advogado.getQuantidadeCasosAtendidos() == null) {
+			advogado.setQuantidadeCasosAtendidos(0);
+		}
 		if (advogado.getQuantidadeCasosAtendidos() == 2) {
 			throw new DataIntegrityViolationException("Você já possui o limite de casos aceitos");
 		}
