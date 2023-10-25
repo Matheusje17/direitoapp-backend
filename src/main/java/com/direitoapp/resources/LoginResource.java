@@ -17,7 +17,7 @@ import com.direitoapp.services.ClienteService;
 import com.direitoapp.services.LoginService;
 
 @RestController
-@RequestMapping(value = "/login" ,produces = "application/json;charset=UTF-8")
+@RequestMapping(value = "/login")
 public class LoginResource {
 	
 	@Autowired private LoginService loginService;

@@ -19,7 +19,7 @@ import com.direitoapp.domain.dtos.AdvogadoCasoRequest;
 import com.direitoapp.services.AdvogadoCasoService;
 
 @RestController
-@RequestMapping(value = "/advogadocasos" ,produces = "application/json;charset=UTF-8")
+@RequestMapping(value = "/advogadocasos" )
 
 public class AdvogadoCasoResource {
 
