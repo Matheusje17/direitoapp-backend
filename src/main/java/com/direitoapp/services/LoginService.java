@@ -18,7 +18,7 @@ public class LoginService {
 	
 	public Pessoa getLogin(CredenciaisDTO credenciaisDTO) {
 		Optional<Pessoa> pessoa = pessoaRepository.findByCelular(credenciaisDTO.getCelular());
-		pessoa.orElseThrow(() -> new ObjectNotFoundException("Usuario não encontrado"));
+		pessoa.orElseThrow(() -> new ObjectNotFoundException("Usuario inexistente"));
 		String passRequest = credenciaisDTO.getSenha();
 		String userPass = pessoa.get().getSenha();
 		
@@ -33,7 +33,7 @@ public class LoginService {
 	
 	public Pessoa getUserByCelular(String celular) {
 		Optional<Pessoa> pessoa = pessoaRepository.findByCelular(celular);
-		return pessoa.orElseThrow(() -> new ObjectNotFoundException("Usuario não encontrado "));
+		return pessoa.orElseThrow(() -> new ObjectNotFoundException("Usuario inexistente "));
 	}
 	
 
