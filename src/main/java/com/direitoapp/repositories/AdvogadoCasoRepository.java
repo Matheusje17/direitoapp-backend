@@ -17,5 +17,8 @@ public interface AdvogadoCasoRepository extends JpaRepository<AdvogadoCaso, Inte
 	
 	@Query("SELECT c FROM AdvogadoCaso c WHERE c.caso = :caso AND c.advogadoAtendimento = :advogadoAtendimento")
 	Optional<AdvogadoCaso> findByCasoEAdvogado(@Param("caso")Caso caso, @Param("advogadoAtendimento") Advogado advogadoAtendimento);
+	
+	@Query("SELECT c FROM AdvogadoCaso c WHERE c.status = 1 AND c.advogadoAtendimento = :advogadoAtendimento")
+	Optional<List<AdvogadoCaso>> findByAdvogadoCasosAceitos(@Param("advogadoAtendimento") Advogado advogadoAtendimento);
 
 } 

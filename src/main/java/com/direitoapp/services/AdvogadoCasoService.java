@@ -3,6 +3,7 @@ package com.direitoapp.services;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,7 +72,12 @@ public class AdvogadoCasoService {
 		if (advogado.getQuantidadeCasosAtendidos() == null) {
 			advogado.setQuantidadeCasosAtendidos(0);
 		}
-		if (advogado.getQuantidadeCasosAtendidos() == 2) {
+		Optional<List<AdvogadoCaso>> advCasosList = advogadoCasoRepository.findByAdvogadoCasosAceitos(advogado);
+		
+		List<AdvogadoCasoDTO> advogadoCasosDTOList = advCasosList.get().stream().map(ac -> new AdvogadoCasoDTO(ac)).collect(Collectors.toList());
+		
+		
+		if (advogadoCasosDTOList.size() >= 2) {
 			throw new DataIntegrityViolationException("Você atingiu o limite de casos aceitos");
 		}
 		
@@ -87,6 +93,7 @@ public class AdvogadoCasoService {
 	}
 	
 	public void delete(Integer id) {
+		
 		advogadoCasoRepository.deleteById(id);
 	}
 	
