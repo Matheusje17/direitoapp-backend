@@ -18,14 +18,17 @@ public class LoginService {
 	
 	public Pessoa getLogin(CredenciaisDTO credenciaisDTO) {
 		Optional<Pessoa> pessoa = pessoaRepository.findByCelular(credenciaisDTO.getCelular());
-		
+		pessoa.orElseThrow(() -> new ObjectNotFoundException("Usuario não encontrado"));
 		String passRequest = credenciaisDTO.getSenha();
 		String userPass = pessoa.get().getSenha();
+		
+		
 		if(!passRequest.equals(userPass)) {
 			throw  new DataIntegrityViolationException("Senha invalida!");
 		}
+		return pessoa.get();
 		
-		return pessoa.orElseThrow(() -> new ObjectNotFoundException("Usuario não encontrado "));
+		
 	}
 	
 	public Pessoa getUserByCelular(String celular) {

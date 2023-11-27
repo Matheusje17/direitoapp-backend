@@ -66,13 +66,13 @@ public class AdvogadoCasoService {
 		Optional<AdvogadoCaso> advCaso = advogadoCasoRepository.findByCasoEAdvogado(caso, advogado);
 		
 		if (advCaso.isPresent()) {
-			throw new DataIntegrityViolationException("Caso já aceito");
+			throw new DataIntegrityViolationException("Caso aceito anteriormente");
 		}
 		if (advogado.getQuantidadeCasosAtendidos() == null) {
 			advogado.setQuantidadeCasosAtendidos(0);
 		}
 		if (advogado.getQuantidadeCasosAtendidos() == 2) {
-			throw new DataIntegrityViolationException("Você já possui o limite de casos aceitos");
+			throw new DataIntegrityViolationException("Você atingiu o limite de casos aceitos");
 		}
 		
 		AdvogadoCaso advogadoCaso = new AdvogadoCaso(caso, advogado, cliente);
@@ -134,7 +134,7 @@ public class AdvogadoCasoService {
 		Optional<AdvogadoCaso> advCasoExistente = advogadoCasoRepository.findByCasoEAdvogado(advCaso.getCaso(), advCaso.getAdvogadoAtendimento());
 		
 		if (advCasoExistente.isPresent() && advCasoExistente.get().getStatus() == Status.RECUSADO.getCodigo()) {
-			throw new DataIntegrityViolationException("Advogado já recusado");
+			throw new DataIntegrityViolationException("Advogado recusado anteriormente");
 		}
 				
 		advCaso.setStatus(Status.RECUSADO.getCodigo());
