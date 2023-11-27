@@ -31,12 +31,14 @@ public class ClienteResource {
 	@Autowired
 	private ClienteService ClienteService;
 	
+
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<ClienteDTO> findById(@PathVariable Integer id) {
 		Cliente cli = ClienteService.findById(id);
 		return ResponseEntity.ok().body(new ClienteDTO(cli));
 	}
 	
+
 	@GetMapping
 	public ResponseEntity<List<ClienteDTO>> findAll(){
 		List<Cliente> ClienteList = ClienteService.findAll();
@@ -44,12 +46,14 @@ public class ClienteResource {
 		return ResponseEntity.ok(ClienteDTOList);
 	}
 	
+
 	@PostMapping
 	public ResponseEntity<ClienteDTO> create(@Valid @RequestBody ClienteDTO clienteDTO) {
 		Cliente newcli = ClienteService.create(clienteDTO);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newcli.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
+	
 	
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<ClienteDTO> update(@PathVariable Integer id, @RequestBody ClienteDTO ClienteDTO) {
