@@ -42,9 +42,11 @@ public class AdvogadoService {
 	public Advogado update(Integer id, AdvogadoDTO advogadoDTO) {
 		advogadoDTO.setId(id);
 		Advogado oldAdvogado = findById(id);
-		
+		advogadoDTO.setQuantidadeCasosAtendidos(oldAdvogado.getQuantidadeCasosAtendidos());
 		validaAdvogadoExistente(advogadoDTO);
+		
 		oldAdvogado = new Advogado(advogadoDTO);
+		
 		
 		return advogadoRepository.save(oldAdvogado);
 	}
