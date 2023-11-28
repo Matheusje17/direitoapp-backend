@@ -103,7 +103,7 @@ public class AdvogadoCasoService {
 		Optional<AdvogadoCaso> advCasoExistente = advogadoCasoRepository.findByCasoEAdvogado(advCaso.getCaso(), advCaso.getAdvogadoAtendimento());
 		
 		if (advCasoExistente.isPresent() && advCasoExistente.get().getStatus() == Status.ACEITO.getCodigo()) {
-			throw new DataIntegrityViolationException("Advogado já aceito");
+			throw new DataIntegrityViolationException("Advogado aceito anteriormente");
 		}
 		
 		Optional<List<AdvogadoCaso>> AdvogadoCasoList = advogadoCasoRepository.findByCaso(advCaso.getCaso());
